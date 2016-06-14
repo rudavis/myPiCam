@@ -477,9 +477,6 @@ def takePicture():
 	camera.resolution = sizeData[sizeMode][0]
 	camera.crop       = sizeData[sizeMode][2]
 	try:
-	  print 'filename: ' + filename
-	  print 'storemode: ' 
-	  print storeMode
 	  camera.capture(filename, use_video_port=False, format='jpeg',
 	    thumbnail=None)
 	  # Set image file ownership to pi user, mode to 644
@@ -498,17 +495,13 @@ def takePicture():
 
 	finally:
 	  # Add error handling/indicator (disk full, etc.)
-	  print 'Do we get to the finally?'
 	  camera.resolution = sizeData[sizeMode][1]
 	  camera.crop       = (0.0, 0.0, 1.0, 1.0)
 
 	busy = False
 	t.join()
-	print 'this is after the join'
 
 	if scaled:
-	  print 'image is scaled'
-	  print scaled.get_height() 
 	  if scaled.get_height() < 320: # Letterbox
 	    screen.fill(0)
 	  screen.blit(scaled,
@@ -616,10 +609,7 @@ while(True):
         pos = pygame.mouse.get_pos()
         print pos
         for b in buttons[screenMode]:
-          if b.selected(pos):
-            print 'b: '
-            print b
-            break
+          if b.selected(pos): break
     # If in viewfinder or settings modes, stop processing touchscreen
     # and refresh the display to show the live preview.  In other modes
     # (image playback, etc.), stop and refresh the screen only when
