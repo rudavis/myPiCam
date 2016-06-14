@@ -297,7 +297,8 @@ buttons = [
    Button((324,268,156, 52), bg='play', cb=viewCallback, value=1),
    Button((  0,  0,480,320)           , cb=viewCallback, value=2),
    Button(( 160, 109,157,102)),  # 'Working' label (when enabled)
-   Button((229, 149,22, 22))], # Spinner (when enabled)
+ ### TODO:  Center Spinner
+   Button(( 229, 149,22, 22))], # Spinner (when enabled)
 
   # Remaining screens are settings modes
 
@@ -605,6 +606,7 @@ while(True):
     for event in pygame.event.get():
       if(event.type is MOUSEBUTTONDOWN):
         pos = pygame.mouse.get_pos()
+        print pos
         for b in buttons[screenMode]:
           if b.selected(pos): break
     # If in viewfinder or settings modes, stop processing touchscreen
