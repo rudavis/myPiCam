@@ -498,13 +498,17 @@ def takePicture():
 
 	finally:
 	  # Add error handling/indicator (disk full, etc.)
+	  print 'Do we get to the finally?'
 	  camera.resolution = sizeData[sizeMode][1]
 	  camera.crop       = (0.0, 0.0, 1.0, 1.0)
 
 	busy = False
 	t.join()
+	print 'this is after the join'
 
 	if scaled:
+	  print 'image is scaled'
+	  print scaled.get_height() 
 	  if scaled.get_height() < 320: # Letterbox
 	    screen.fill(0)
 	  screen.blit(scaled,
