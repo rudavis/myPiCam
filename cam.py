@@ -619,7 +619,8 @@ while(True):
     # (image playback, etc.), stop and refresh the screen only when
     # screenMode changes.
     if screenMode >= 3 or screenMode != screenModePrior: 
-      print 'screenmode is greater than 3: ' + screenMode
+      print 'screenmode is greater than 3: '
+      print screenMode
       break
 
   # Refresh display
