@@ -298,7 +298,7 @@ buttons = [
    Button((  0,  0,480,320)           , cb=viewCallback, value=2),
    Button(( 160, 109,157,102)),  # 'Working' label (when enabled)
  ### TODO:  Center Spinner
-   Button(( 218, 170,22, 22))], # Spinner (when enabled)
+   Button(( 220, 168,22, 22))], # Spinner (when enabled)
 
   # Remaining screens are settings modes
 
@@ -478,7 +478,8 @@ def takePicture():
 	camera.crop       = sizeData[sizeMode][2]
 	try:
 	  print 'filename: ' + filename
-	  print 'storemode: ' + storeMode
+	  print 'storemode: ' 
+	  print storeMode
 	  camera.capture(filename, use_video_port=False, format='jpeg',
 	    thumbnail=None)
 	  # Set image file ownership to pi user, mode to 644
@@ -612,16 +613,14 @@ while(True):
         print pos
         for b in buttons[screenMode]:
           if b.selected(pos):
-            print 'b: ' + b
+            print 'b: '
+            print b
             break
     # If in viewfinder or settings modes, stop processing touchscreen
     # and refresh the display to show the live preview.  In other modes
     # (image playback, etc.), stop and refresh the screen only when
     # screenMode changes.
-    if screenMode >= 3 or screenMode != screenModePrior: 
-      print 'screenmode is greater than 3: '
-      print screenMode
-      break
+    if screenMode >= 3 or screenMode != screenModePrior: break
 
   # Refresh display
   if screenMode >= 3: # Viewfinder or settings modes
