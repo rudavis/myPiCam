@@ -298,7 +298,7 @@ buttons = [
    Button((  0,  0,480,320)           , cb=viewCallback, value=2),
    Button(( 160, 109,157,102)),  # 'Working' label (when enabled)
  ### TODO:  Center Spinner
-   Button(( 218, 162,22, 22))], # Spinner (when enabled)
+   Button(( 218, 170,22, 22))], # Spinner (when enabled)
 
   # Remaining screens are settings modes
 
@@ -477,8 +477,8 @@ def takePicture():
 	camera.resolution = sizeData[sizeMode][0]
 	camera.crop       = sizeData[sizeMode][2]
 	try:
-	  print filename
-	  print storeMode
+	  print 'filename: ' + filename
+	  print 'storemode: ' + storeMode
 	  camera.capture(filename, use_video_port=False, format='jpeg',
 	    thumbnail=None)
 	  # Set image file ownership to pi user, mode to 644
@@ -492,7 +492,7 @@ def takePicture():
 	      cmd = uploader + ' -f ' + upconfig + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
 	    else:
 	      cmd = uploader + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
-	    print cmd
+	    print 'print command: ' + cmd
 	    call ([cmd], shell=True)
 
 	finally:
@@ -611,12 +611,16 @@ while(True):
         pos = pygame.mouse.get_pos()
         print pos
         for b in buttons[screenMode]:
-          if b.selected(pos): break
+          if b.selected(pos):
+          	print 'b: ' + b
+            break
     # If in viewfinder or settings modes, stop processing touchscreen
     # and refresh the display to show the live preview.  In other modes
     # (image playback, etc.), stop and refresh the screen only when
     # screenMode changes.
-    if screenMode >= 3 or screenMode != screenModePrior: break
+    if screenMode >= 3 or screenMode != screenModePrior: 
+      print 'screenmode is greater than 3: ' + screenmode
+      break
 
   # Refresh display
   if screenMode >= 3: # Viewfinder or settings modes
