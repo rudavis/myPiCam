@@ -298,7 +298,7 @@ buttons = [
    Button((  0,  0,480,320)           , cb=viewCallback, value=2),
    Button(( 160, 109,157,102)),  # 'Working' label (when enabled)
  ### TODO:  Center Spinner
-   Button(( 229, 149,22, 22))], # Spinner (when enabled)
+   Button(( 218, 162,22, 22))], # Spinner (when enabled)
 
   # Remaining screens are settings modes
 
