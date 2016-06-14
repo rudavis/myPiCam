@@ -605,7 +605,7 @@ while(True):
   # Process touchscreen input
   while True:
     for event in pygame.event.get():
-      if(event.type is MOUSEBUTTONDOWN):
+      if(event.type is MOUSEBUTTONUP):
         pos = pygame.mouse.get_pos()
         print pos
         for b in buttons[screenMode]:
