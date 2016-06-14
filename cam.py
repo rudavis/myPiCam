@@ -612,7 +612,7 @@ while(True):
         print pos
         for b in buttons[screenMode]:
           if b.selected(pos):
-          	print 'b: ' + b
+            print 'b: ' + b
             break
     # If in viewfinder or settings modes, stop processing touchscreen
     # and refresh the display to show the live preview.  In other modes
