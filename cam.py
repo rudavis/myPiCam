@@ -477,6 +477,8 @@ def takePicture():
 	camera.resolution = sizeData[sizeMode][0]
 	camera.crop       = sizeData[sizeMode][2]
 	try:
+	  print filename
+	  print storeMode
 	  camera.capture(filename, use_video_port=False, format='jpeg',
 	    thumbnail=None)
 	  # Set image file ownership to pi user, mode to 644
@@ -490,6 +492,7 @@ def takePicture():
 	      cmd = uploader + ' -f ' + upconfig + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
 	    else:
 	      cmd = uploader + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
+	    print cmd
 	    call ([cmd], shell=True)
 
 	finally:
