@@ -236,7 +236,7 @@ upconfig        = '/home/pi/.dropbox_uploader'
 
 sizeData = [ # Camera parameters for different size settings
  # Full res      Viewfinder  Crop window
- [(2592, 1944), (480, 320), (0.0   , 0.0   , 1.0   , 1.0   )], # Large
+ [(2592, 1944), (320, 240), (0.0   , 0.0   , 1.0   , 1.0   )], # Large
  [(1920, 1080), (320, 180), (0.1296, 0.2222, 0.7408, 0.5556)], # Med
  [(1440, 1080), (320, 240), (0.2222, 0.2222, 0.5556, 0.5556)]] # Small
 
@@ -499,11 +499,11 @@ def takePicture():
 	t.join()
 
 	if scaled:
-	  if scaled.get_height() < 320: # Letterbox
+	  if scaled.get_height() < 240: # Letterbox
 	    screen.fill(0)
 	  screen.blit(scaled,
-	    ((480 - scaled.get_width() ) / 2,
-	     (320 - scaled.get_height()) / 2))
+	    ((320 - scaled.get_width() ) / 2,
+	     (240 - scaled.get_height()) / 2))
 	  pygame.display.update()
 	  time.sleep(2.5)
 	  loadIdx = saveIdx
@@ -560,8 +560,8 @@ s = os.getenv("SUDO_GID")
 gid = int(s) if s else os.getgid()
 
 # Buffers for viewfinder data
-rgb = bytearray(480 * 320 * 3)
-yuv = bytearray(480 * 320 * 3 / 2)
+rgb = bytearray(320 * 240 * 3)
+yuv = bytearray(320 * 240 * 3 / 2)
 
 # Init pygame and screen
 pygame.init()
@@ -629,12 +629,12 @@ while(True):
   else:                # 'No Photos' mode
     img = None         # You get nothing, good day sir
 
-  if img is None or img.get_height() < 320: # Letterbox, clear background
+  if img is None or img.get_height() < 240: # Letterbox, clear background
     screen.fill(0)
   if img:
     screen.blit(img,
-      ((480 - img.get_width() ) / 2,
-       (320 - img.get_height()) / 2))
+      ((320 - img.get_width() ) / 2,
+       (240 - img.get_height()) / 2))
 
   # Overlay buttons on display and update
   for i,b in enumerate(buttons[screenMode]):
