@@ -303,7 +303,7 @@ buttons = [
   # Remaining screens are settings modes
 
   # Screen mode 4 is storage settings
-  [Button((  0,188,480, 52), bg='done', cb=doneCallback),
+  [Button((  0,268,480, 52), bg='done', cb=doneCallback),
    Button((  0,  0, 80, 52), bg='prev', cb=settingCallback, value=-1),
    Button((400,  0, 80, 52), bg='next', cb=settingCallback, value= 1),
    Button(( 30, 60,100,120), bg='radio3-1', fg='store-folder',
@@ -315,7 +315,7 @@ buttons = [
    Button((  0, 10,480, 35), bg='storage')],
 
   # Screen mode 5 is size settings
-  [Button((  0,188,480, 52), bg='done', cb=doneCallback),
+  [Button((  0,268,480, 52), bg='done', cb=doneCallback),
    Button((  0,  0, 80, 52), bg='prev', cb=settingCallback, value=-1),
    Button((400,  0, 80, 52), bg='next', cb=settingCallback, value= 1),
    Button(( 30, 60,100,120), bg='radio3-1', fg='size-l',
@@ -327,7 +327,7 @@ buttons = [
    Button((  0, 10,480, 29), bg='size')],
 
   # Screen mode 6 is graphic effect
-  [Button((  0,188,480, 52), bg='done', cb=doneCallback),
+  [Button((  0,268,480, 52), bg='done', cb=doneCallback),
    Button((  0,  0, 80, 52), bg='prev', cb=settingCallback, value=-1),
    Button((400,  0, 80, 52), bg='next', cb=settingCallback, value= 1),
    Button((  0, 70, 80, 52), bg='prev', cb=fxCallback     , value=-1),
@@ -336,7 +336,7 @@ buttons = [
    Button((  0, 11,480, 29), bg='fx')],
 
   # Screen mode 7 is ISO
-  [Button((  0,188,480, 52), bg='done', cb=doneCallback),
+  [Button((  0,268,480, 52), bg='done', cb=doneCallback),
    Button((  0,  0, 80, 52), bg='prev', cb=settingCallback, value=-1),
    Button((400,  0, 80, 52), bg='next', cb=settingCallback, value= 1),
    Button((  0, 70, 80, 52), bg='prev', cb=isoCallback    , value=-1),
@@ -345,13 +345,13 @@ buttons = [
 # TODO:  Figure these out....
    Button((  9,134,302, 26), bg='iso-bar'),
    Button(( 17,157, 21, 19), bg='iso-arrow'),
-   Button((  0, 10,320, 29), bg='iso')],
+   Button((  0, 10,480, 29), bg='iso')],
 
   # Screen mode 8 is quit confirmation
-  [Button((  0,188,480, 52), bg='done'   , cb=doneCallback),
+  [Button((  0,268,480, 52), bg='done'   , cb=doneCallback),
    Button((  0,  0, 80, 52), bg='prev'   , cb=settingCallback, value=-1),
-   Button((320,  0, 80, 52), bg='next'   , cb=settingCallback, value= 1),
-   Button((110, 60,100,120), bg='quit-ok', cb=quitCallback),
+   Button((400,  0, 80, 52), bg='next'   , cb=settingCallback, value= 1),
+   Button((190, 60,100,120), bg='quit-ok', cb=quitCallback),
    Button((  0, 10,480, 35), bg='quit')]
 ]
 
