@@ -535,6 +535,8 @@ def showImage(n):
 	t = threading.Thread(target=spinner)
 	t.start()
 
+	print pathData[storeMode] + '/IMG_' + '%04d' % n + '.JPG'
+
 	img      = pygame.image.load(
 	            pathData[storeMode] + '/IMG_' + '%04d' % n + '.JPG')
 	scaled   = pygame.transform.scale(img, sizeData[sizeMode][1])
