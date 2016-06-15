@@ -490,7 +490,7 @@ def takePicture():
 	      cmd = uploader + ' -f ' + upconfig + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
 	    else:
 	      cmd = uploader + ' upload ' + filename + ' Photos/' + os.path.basename(filename)
-	    print 'print command: ' + cmd
+	    #print 'print command: ' + cmd
 	    call ([cmd], shell=True)
 
 	finally:
@@ -535,7 +535,7 @@ def showImage(n):
 	t = threading.Thread(target=spinner)
 	t.start()
 
-	print pathData[storeMode] + '/IMG_' + '%04d' % n + '.JPG'
+	# print pathData[storeMode] + '/IMG_' + '%04d' % n + '.JPG'
 
 	img      = pygame.image.load(
 	            pathData[storeMode] + '/IMG_' + '%04d' % n + '.JPG')
@@ -609,7 +609,7 @@ while(True):
     for event in pygame.event.get():
       if(event.type is MOUSEBUTTONUP):
         pos = pygame.mouse.get_pos()
-        print pos
+        # print pos
         for b in buttons[screenMode]:
           if b.selected(pos): break
     # If in viewfinder or settings modes, stop processing touchscreen
